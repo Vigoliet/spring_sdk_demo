@@ -1,5 +1,6 @@
 package com.example.spring_sdk_demo.s3bucket;
 
+import com.example.spring_sdk_demo.models.Bucket;
 import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
 import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.regions.Region;
@@ -10,6 +11,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class S3Example {
 
@@ -79,9 +82,11 @@ public class S3Example {
         System.out.println("Bucket deleted: " + bucketName);
     }
 
-    public void listBuckets() {
+    public List<Bucket> listBuckets() {
         ListBucketsRequest listBucketsRequest = ListBucketsRequest.builder().build();
         ListBucketsResponse listBucketsResponse = s3.listBuckets(listBucketsRequest);
-        listBucketsResponse.buckets().forEach(x -> System.out.println(x.name()));
+        return listBucketsResponse.buckets().stream()
+                .map(b -> new Bucket(b.name(), b.creationDate().toString()))
+                .collect(Collectors.toList());
     }
 }
