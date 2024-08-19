@@ -1,6 +1,7 @@
 package com.example.spring_sdk_demo.s3bucket;
 
 import com.example.spring_sdk_demo.models.Bucket;
+import org.springframework.stereotype.Service;
 import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
 import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.regions.Region;
@@ -14,6 +15,7 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class S3Example {
 
     private final S3Client s3;

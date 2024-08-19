@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bucket List</title>
+</head>
+<body>
+<h1>Bucket List</h1>
+
+<ul>
+    <th:block th:each="bucket : ${buckets}">
+        <li th:text="${bucket.name}"></li>
+    </th:block>
+</ul>
+
+<a href="/">Back to Home</a>
+
+</body>
+</html>

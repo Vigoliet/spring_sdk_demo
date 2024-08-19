@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<h1>Home</h1>
+
+<p>Welcome to the home page!</p>
+
+
+<form action="/createBucketPost" method="post">
+    <label for="bucketName">Bucket Name:</label>
+    <input type="text" id="bucketName" name="bucketName" required>
+    <button type="submit">Create Bucket</button>
+</form>
+
+<form action="/listBuckets" method="get">
+    <button type="submit">List Buckets</button>
+</form>
+
+</body>
+</html>

@@ -4,10 +4,8 @@ import com.example.spring_sdk_demo.models.Bucket;
 import com.example.spring_sdk_demo.repositories.BucketRepository;
 import com.example.spring_sdk_demo.s3bucket.S3Example;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,6 +18,8 @@ public class BucketController {
 
     @Autowired
     private BucketRepository bucketRepository;
+    private S3Example s3Example;
+
 
     @GetMapping("/buckets")
     public List<Bucket> getBuckets() {
@@ -35,6 +35,10 @@ public class BucketController {
         S3Example s3Example = new S3Example();
         s3Example.createBucket(bucketName);
     }
+
+
+
+
 
 
 
